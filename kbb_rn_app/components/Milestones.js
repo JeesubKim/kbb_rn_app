@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {FlatList, View, StyleSheet, Alert} from 'react-native';
-import {Context} from '../App';
+import {Context} from '../screens/HomeScreen';
 import MilestoneItem from './MilestoneItem';
 
 function Milestones({milestones}) {
