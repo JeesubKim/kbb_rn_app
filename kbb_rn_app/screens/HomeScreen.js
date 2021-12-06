@@ -5,6 +5,7 @@ import AddMilestone from '../components/AddMilestone';
 import Greetings from '../components/Greetings';
 import Layout from '../components/Layout';
 import Milestones from '../components/Milestones';
+
 export const Context = createContext();
 
 function HomeScreen({navigation}) {

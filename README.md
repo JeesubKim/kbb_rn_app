@@ -100,6 +100,7 @@ const load = async() => {
 ```
 $ yarn add @react-navigation/native
 $ yarn add @react-navigation/native-stack
+$ yarn add react-native-screens
 ```
 
 iOS only
@@ -142,4 +143,10 @@ function HomeScreen({navigation}){
         </View>
     )
 }
+```
+
+## Bottom navigator
+
+```
+$ yarn add @react-navigation/bottom-tabs react-native-vector-icons
 ```

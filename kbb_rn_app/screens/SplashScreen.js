@@ -6,7 +6,7 @@ import Greetings from '../components/Greetings';
 function SplashScreen({navigation}) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('Home');
+      navigation.navigate('AppScreen');
     }, 2000);
   }, []);
   return (

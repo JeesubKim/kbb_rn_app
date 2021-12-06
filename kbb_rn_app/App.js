@@ -12,6 +12,7 @@ import SplashScreen from './screens/SplashScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import AppScreen from './screens/AppScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,12 +27,16 @@ function App() {
           component={SplashScreen}
           // options={{headerShown: false}}
         />
-
         <Stack.Screen
+          name="AppScreen"
+          component={AppScreen}
+          // options={{headerShown: false}}
+        />
+        {/* <Stack.Screen
           name="Home"
           component={HomeScreen}
           // options={{headerShown: false}}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
