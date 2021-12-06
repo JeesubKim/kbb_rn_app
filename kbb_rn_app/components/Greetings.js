@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
-function Greetings({ color }) {
-  const st = style({ color });
-  const [height, setHeight] = useState('100%');
-  useEffect(() => {
-    setTimeout(() => {
-      setHeight(120);
-    }, 1500);
-  }, []);
+function Greetings({color, height}) {
+  const st = style({color});
+
   return (
-    <View style={[st.container, { height }]}>
+    <View style={[st.container, {height}]}>
       <Image
         style={st.image}
         source={require('../assets/icons/kbb/KBB3.png')}
@@ -28,7 +23,7 @@ const style = props =>
       backgroundColor: props.color,
     },
     image: {
-      transform: [{ rotate: '90deg' }],
+      transform: [{rotate: '90deg'}],
     },
     text: {
       backgroundColor: props.color,

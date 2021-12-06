@@ -18,7 +18,7 @@ function HomeScreen({navigation}) {
     <Context.Provider value={{setMilestones}}>
       <Layout>
         <Layout.Header color="hotpink">
-          <Greetings />
+          <Greetings height={120} />
         </Layout.Header>
         <Layout.Content>
           <Milestones milestones={milestones} />

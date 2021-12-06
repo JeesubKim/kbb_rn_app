@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 
 import {View, Text} from 'react-native';
+import Greetings from '../components/Greetings';
 
 function SplashScreen({navigation}) {
   useEffect(() => {
@@ -10,7 +11,7 @@ function SplashScreen({navigation}) {
   }, []);
   return (
     <View>
-      <Text>SplashScreen!</Text>
+      <Greetings color="hotpink" height="100%" />
     </View>
   );
 }
