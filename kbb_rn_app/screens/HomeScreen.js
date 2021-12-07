@@ -1,6 +1,7 @@
 import React, {createContext, useState} from 'react';
 
 import AddMilestone from '../components/AddMilestone';
+import FloatingWriteButton from '../components/FloatingWriteButton';
 
 import Greetings from '../components/Greetings';
 import Layout from '../components/Layout';
@@ -25,7 +26,9 @@ function HomeScreen({navigation}) {
           <Milestones milestones={milestones} />
         </Layout.Content>
         <Layout.Footer>
-          <AddMilestone placeholder="신규 로드매푸 적어보소" />
+          {/* <AddMilestone placeholder="신규 로드매푸 적어보소" /> */}
+
+          <FloatingWriteButton target="WriteScreen" />
         </Layout.Footer>
       </Layout>
     </Context.Provider>

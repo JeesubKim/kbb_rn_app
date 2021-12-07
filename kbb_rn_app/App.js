@@ -13,6 +13,7 @@ import SplashScreen from './screens/SplashScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AppScreen from './screens/AppScreen';
+import WriteScreen from './screens/WriteScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,11 +33,11 @@ function App() {
           component={AppScreen}
           // options={{headerShown: false}}
         />
-        {/* <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+        <Stack.Screen
+          name="WriteScreen"
+          component={WriteScreen}
           // options={{headerShown: false}}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
