@@ -28,16 +28,8 @@ function App() {
           component={SplashScreen}
           // options={{headerShown: false}}
         />
-        <Stack.Screen
-          name="AppScreen"
-          component={AppScreen}
-          // options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="WriteScreen"
-          component={WriteScreen}
-          // options={{headerShown: false}}
-        />
+        <Stack.Screen name="AppScreen" component={AppScreen} />
+        <Stack.Screen name="WriteScreen" component={WriteScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
