@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
-function Greetings({color, height}) {
+function Greetings({color, height, children}) {
   const st = style({color});
 
   return (
@@ -11,6 +11,7 @@ function Greetings({color, height}) {
         source={require('../assets/icons/kbb/KBB3.png')}
       />
       <Text style={st.text}>KBB Roadmap</Text>
+      {children}
     </View>
   );
 }
