@@ -150,3 +150,27 @@ function HomeScreen({navigation}){
 ```
 $ yarn add @react-navigation/bottom-tabs react-native-vector-icons
 ```
+
+ios
+
+```
+$ cd ios
+$ pod install
+```
+
+## Firebase
+
+`https://rnfirebase.io` - Link: (https://rnfirebase.io)
+
+```
+$ yarn add @react-native-firebase/app @react-native-firebase/auth @react-native-firebase/firestore @react-native-firebase/storage
+```
+
+- `*/app` --> essential
+- `*/auth` --> for auth
+- `*/firestore` --> image upload
+
+```
+//for ios
+$ pod install
+```

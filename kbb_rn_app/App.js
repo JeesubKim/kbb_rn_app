@@ -14,6 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AppScreen from './screens/AppScreen';
 import WriteScreen from './screens/WriteScreen';
+import SignInScreen from './screens/SignInScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +22,8 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Splash"
+        // initialRouteName="Splash"
+        initialRouteName="SignInScreen"
         screenOptions={{headerShown: false}}>
         <Stack.Screen
           name="Splash"
@@ -30,6 +32,7 @@ function App() {
         />
         <Stack.Screen name="AppScreen" component={AppScreen} />
         <Stack.Screen name="WriteScreen" component={WriteScreen} />
+        <Stack.Screen name="SignInScreen" component={SignInScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
