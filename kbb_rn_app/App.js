@@ -20,22 +20,26 @@ import useGoogleSignIn from './hooks/useGoogleSignIn';
 const Stack = createNativeStackNavigator();
 
 function App() {
+  const {GoogleSignInContext, signInState, onGoogleButtonPress} =
+    useGoogleSignIn();
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Splash"
-        // initialRouteName="SignInScreen"
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
-          // options={{headerShown: false}}
-        />
-        <Stack.Screen name="AppScreen" component={AppScreen} />
-        <Stack.Screen name="WriteScreen" component={WriteScreen} />
-        <Stack.Screen name="SignInScreen" component={SignInScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GoogleSignInContext.Provider value={{signInState, onGoogleButtonPress}}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Splash"
+          // initialRouteName="SignInScreen"
+          screenOptions={{headerShown: false}}>
+          <Stack.Screen
+            name="Splash"
+            component={SplashScreen}
+            // options={{headerShown: false}}
+          />
+          <Stack.Screen name="AppScreen" component={AppScreen} />
+          <Stack.Screen name="WriteScreen" component={WriteScreen} />
+          <Stack.Screen name="SignInScreen" component={SignInScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GoogleSignInContext.Provider>
   );
 }
 

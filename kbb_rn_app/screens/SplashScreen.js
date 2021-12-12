@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 
 import {View, Text} from 'react-native';
 import Greetings from '../components/Greetings';
-import useGoogleSignIn from '../hooks/useGoogleSignIn';
+import {getGoogleSignInContext} from '../hooks/useGoogleSignIn';
 
 function SplashScreen({navigation}) {
-  const {signInState} = useGoogleSignIn();
+  const {signInState} = getGoogleSignInContext();
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate(signInState ? 'AppScreen' : 'SignInScreen');

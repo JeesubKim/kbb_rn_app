@@ -3,9 +3,11 @@ import {View, StyleSheet, Text, Pressable} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {GoogleSigninButton} from '@react-native-google-signin/google-signin';
 import Greetings from '../components/Greetings';
-import useGoogleSignIn from '../hooks/useGoogleSignIn';
+import useGoogleSignIn, {
+  getGoogleSignInContext,
+} from '../hooks/useGoogleSignIn';
 function SignInScreen({navigation}) {
-  const {signInState, onGoogleButtonPress} = useGoogleSignIn();
+  const {signInState, onGoogleButtonPress} = getGoogleSignInContext();
   return (
     <SafeAreaView style={style.fullscreen}>
       <Greetings height={'100%'} color="hotpink">

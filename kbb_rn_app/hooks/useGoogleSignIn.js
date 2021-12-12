@@ -1,7 +1,9 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext, createContext} from 'react';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
+const GoogleSignInContext = createContext(null);
+export const getGoogleSignInContext = () => useContext(GoogleSignInContext);
 function useGoogleSignIn() {
   const [signInState, setSignInState] = useState(false);
   useEffect(() => {
@@ -19,6 +21,7 @@ function useGoogleSignIn() {
 
   auth().onAuthStateChanged(user => setSignInState(user ? true : false));
   return {
+    GoogleSignInContext,
     signInState,
     onGoogleButtonPress,
   };
