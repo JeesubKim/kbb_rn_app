@@ -1,10 +1,14 @@
 import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 
-function Input({hasMarginBottom}) {
+function Input({hasMarginBottom, onChangeText, value, placeholder}) {
   return (
     <TextInput
-      style={[style.input, hasMarginBottom && style.margin]}></TextInput>
+      style={[style.input, hasMarginBottom && style.margin]}
+      onChangeText={onChangeText}
+      value={value}
+      placeholder={placeholder}
+    />
   );
 }
 

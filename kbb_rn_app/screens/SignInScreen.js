@@ -8,22 +8,40 @@ import useGoogleSignIn, {
 } from '../hooks/useGoogleSignIn';
 import Input from '../components/Input';
 import Button from '../components/Button';
-function SignInScreen({navigation}) {
+function SignInScreen({navigation, route}) {
   const {signInState, onGoogleButtonPress} = getGoogleSignInContext();
+  const {isSignUp} = route.params ?? {};
   return (
     <SafeAreaView style={style.fullscreen}>
       <Greetings height={'100%'} color="hotpink">
         <View style={style.inputForm}>
-          <Input hasMarginBottom />
-          <Input />
+          <Input hasMarginBottom placeholder="이메일" />
+          <Input placeholder="비밀번호" hasMarginBottom={isSignUp} />
+          {isSignUp && <Input placeholder="비밀번호 확인" />}
           <View style={style.buttons}>
-            <Button title="로긴" hasMarginBottom />
-            <Button title="가입" />
+            {isSignUp ? (
+              <>
+                <Button title="회원가입" hasMarginBottom />
+                <Button title="뒤로가기" onPress={() => navigation.goBack()} />
+              </>
+            ) : (
+              <>
+                <Button title="로긴" hasMarginBottom />
+                <Button
+                  title="회원가입"
+                  onPress={() =>
+                    navigation.push('SignInScreen', {isSignUp: true})
+                  }
+                />
+              </>
+            )}
           </View>
-          <GoogleSigninButton
-            style={style.googleSigninButton}
-            onGoogleButtonPress={onGoogleButtonPress}
-          />
+          {!isSignUp && (
+            <GoogleSigninButton
+              style={style.googleSigninButton}
+              onGoogleButtonPress={onGoogleButtonPress}
+            />
+          )}
         </View>
       </Greetings>
     </SafeAreaView>
@@ -42,9 +60,7 @@ const style = StyleSheet.create({
     paddingHorizontal: 48,
   },
   buttons: {
-    width: '100%',
-    flexDirection: 'row',
-    marginTop: 64,
+    marginTop: 24,
   },
 });
 

@@ -19,7 +19,7 @@ function Button({title, onPress, hasMarginBottom}) {
 
 const style = StyleSheet.create({
   overflow: {
-    flex: 1,
+    // flex: 1,
     borderRadius: 4,
     overflow: 'hidden',
   },
@@ -37,4 +37,5 @@ const style = StyleSheet.create({
   },
   margin: {marginBottom: 8},
 });
+
 export default Button;
