@@ -1,13 +1,12 @@
 import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 
-function Input({hasMarginBottom, onChangeText, value, placeholder}) {
+function Input({hasMarginBottom, ...props}, ref) {
   return (
     <TextInput
       style={[style.input, hasMarginBottom && style.margin]}
-      onChangeText={onChangeText}
-      value={value}
-      placeholder={placeholder}
+      ref={ref}
+      {...props}
     />
   );
 }
@@ -25,4 +24,4 @@ const style = StyleSheet.create({
     marginBottom: 16,
   },
 });
-export default Input;
+export default React.forwardRef(Input);
