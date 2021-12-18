@@ -6,19 +6,23 @@ import {signOut} from '../lib/auth/auth';
 import {createUser} from '../lib/db/users';
 import Button from './Button';
 import Input from './Input';
+import useUserContext from '../hooks/useUserContext';
+
 export default function SetupProfile() {
   const [displayName, setDisplayName] = useState();
   const navigation = useNavigation();
-
+  const {user, setUser} = useUserContext();
   const {params} = useRoute();
   const {uid} = params || {};
 
   const onSubmit = () => {
-    createUser({
+    const userInfo = {
       id: uid,
       displayName,
       photoURL: null,
-    });
+    };
+    createUser(userInfo);
+    setUser(userInfo);
   };
 
   const onCancel = () => {

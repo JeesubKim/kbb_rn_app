@@ -18,9 +18,11 @@ import Button from '../components/Button';
 import {signIn, signUp} from '../lib/auth/auth';
 import {firebaseError} from '../lib/error/errors';
 import {getUserInfo} from '../lib/db/users';
+import useUserContext from '../hooks/useUserContext';
 function SignInScreen({navigation, route}) {
   const {signInState, onGoogleButtonPress} = getGoogleSignInContext();
   const {isSignUp} = route.params ?? {};
+  const {user, setUser} = useUserContext();
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -46,7 +48,7 @@ function SignInScreen({navigation, route}) {
       const {user} = isSignUp ? await signUp(info) : await signIn(info);
       const profile = await getUserInfo(user.uid);
       profile
-        ? console.log(profile)
+        ? setUser(profile)
         : navigation.navigate('WelcomeScreen', {uid: user.uid});
       console.log(user);
     } catch (e) {
