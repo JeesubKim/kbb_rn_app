@@ -7,7 +7,7 @@
 
 import React from 'react';
 
-import HomeScreen from './screens/HomeScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
 import SplashScreen from './screens/SplashScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -37,6 +37,7 @@ function App() {
           <Stack.Screen name="AppScreen" component={AppScreen} />
           <Stack.Screen name="WriteScreen" component={WriteScreen} />
           <Stack.Screen name="SignInScreen" component={SignInScreen} />
+          <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </GoogleSignInContext.Provider>

@@ -5,6 +5,7 @@ import {
   Platform,
   View,
   StyleSheet,
+  Alert,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {GoogleSigninButton} from '@react-native-google-signin/google-signin';
@@ -14,6 +15,9 @@ import useGoogleSignIn, {
 } from '../hooks/useGoogleSignIn';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import {signIn, signUp} from '../lib/auth/auth';
+import {firebaseError} from '../lib/error/errors';
+import {getUserInfo} from '../lib/db/users';
 function SignInScreen({navigation, route}) {
   const {signInState, onGoogleButtonPress} = getGoogleSignInContext();
   const {isSignUp} = route.params ?? {};
@@ -30,9 +34,24 @@ function SignInScreen({navigation, route}) {
     setForm({...form, [name]: value});
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     Keyboard.dismiss();
-    console.log(form);
+    const {email, password, confirmPassword} = form;
+    if (isSignUp && password !== confirmPassword) {
+      Alert.alert('오류', '비밀번호가 일치하지 않습니다.');
+      return;
+    }
+    const info = {email, password};
+    try {
+      const {user} = isSignUp ? await signUp(info) : await signIn(info);
+      const profile = await getUserInfo(user.uid);
+      profile
+        ? console.log(profile)
+        : navigation.navigate('WelcomeScreen', {uid: user.uid});
+      console.log(user);
+    } catch (e) {
+      Alert.alert('오류', firebaseError(e));
+    }
   };
 
   return (
