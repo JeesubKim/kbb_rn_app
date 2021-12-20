@@ -11,7 +11,6 @@ function SplashScreen({navigation}) {
 
   useEffect(() => {
     setTimeout(() => {
-      // navigation.navigate(signInState ? 'AppScreen' : 'SignInScreen');
       navigation.navigate(user ? 'AppScreen' : 'SignInScreen');
     }, 2000);
   }, []);
